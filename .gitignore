@@ -1,0 +1,83 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go build artifacts
+*.out
+*.test
+*.a
+
+# Go workspace files
+go.work
+go.work.sum
+
+# Dependency directories
+vendor/
+
+# Go modules
+go.sum
+
+# VSCode settings and workspace files
+.vscode/
+*.code-workspace
+
+# Logs and crash reports
+*.log
+*.crash
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Testing cache and artifacts
+*.coverprofile
+*.test
+
+# Binary output directories
+bin/
+
+# --- React project ---
+# Dependency directories
+node_modules/
+
+# Production build output
+build/
+
+# Ignore environment variable files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Kafka ---
+# Kafka log and data directories (commonly ignored in Kafka deployments)
+kafka-logs/
+*.kafka
+
+# --- PostgreSQL ---
+# Database data directories and temp files
+pgdata/
+*.sql
+*.dump
+
+# --- Redis ---
+# Redis dump files
+dump.rdb
+*.aof
+
+# --- Additional ---
+# Ignore database and local development files
+db/
+temp/
+tmp/
+*.sqlite3
+*.db
+*.sqlite
+
+# Ignore specific application settings and secrets
+secrets/
+config.json
+credentials.json

@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: mydb
+      PGOPTIONS: "-c extra_float_digits=3"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./test_postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    depends_on:
+      - postgres
+    ports:
+      - "6432:6432"
+    environment:
+      DB_USER: myuser
+      DB_PASSWORD: mypass
+      DB_NAME: mydb
+    volumes:
+      - ./pgbouncer/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini
+      - ./pgbouncer/userlist.txt:/etc/pgbouncer/userlist.txt
+      - ./pgbouncer/pgbouncer-logs:/var/log/pgbouncer
+    restart: always
